@@ -13,7 +13,13 @@ export class WeatherRecordService {
     return this.http.get<WeatherRecord[]>(`${this.apiUrl}/cities/${cityId}/weather-records`);
   }
 
-  saveRecord(cityId: number, record: { tempC: number; condition: string; humidity: number }): Observable<WeatherRecord> {
-    return this.http.post<WeatherRecord>(`${this.apiUrl}/cities/${cityId}/weather-records`, record);
+  saveRecord(
+    cityId: number,
+    record: { tempC: number; condition: string; humidity: number }
+  ): Observable<WeatherRecord> {
+    return this.http.post<WeatherRecord>(
+      `${this.apiUrl}/cities/${cityId}/weather-records`,
+      record
+    );
   }
 }
